@@ -21,5 +21,9 @@ app.controller("IndexController", ['$scope', '$http', function($scope, $http){
     $scope.delete = function(id){
         return $http.delete('/assignment/' + id).then(fetchAssignments);
     };
+    $scope.update = function(id){
+        var name = prompt("Enter the new name");
+        return $http.put('/assignment/' + id, {"name" : name}).then(fetchAssignments);
+    };
     fetchAssignments();
 }]);

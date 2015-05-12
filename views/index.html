@@ -23,6 +23,7 @@
                         <li ng-repeat="assignment in assignments">
                             {{ assignment.name }}
                             <button ng-click="delete(assignment._id)">Remove</button>
+                            <button ng-click="update(assignment._id)">Update</button>
                         </li>
                     </ul>
                 </div>
