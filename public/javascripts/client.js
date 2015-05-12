@@ -16,7 +16,10 @@ app.controller("IndexController", ['$scope', '$http', function($scope, $http){
         })
     };
     $scope.add = function(assignment){
-        return $http.post('/add', assignment).then(fetchAssignments);
+        return $http.post('/assignment', assignment).then(fetchAssignments);
+    };
+    $scope.delete = function(id){
+        return $http.delete('/assignment/' + id).then(fetchAssignments);
     };
     fetchAssignments();
 }]);
