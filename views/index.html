@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html ng-app="app">
+<head lang="en">
     <meta charset="utf-8">
     <title>Create</title>
+    <script src='/javascripts/angular.min.js' type="text/javascript"></script>
+    <script src='/javascripts/client.js' type="text/javascript"></script>
 </head>
 <body>
     <h1>Stuff n Things</h1>
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2 text-center indexCont">
+            <div ng-controller="IndexController">
+                <h4 ng-show="assignment.name">Your new assignment's name is: {{ assignment.name }}</h4>
+                <h4 ng-hide="assignment.name">Enter your new assignment's name!</h4>
+
+                <form novalidate>
+                    Name: <input class="userInput" type="text" ng-model="assignment.name" /><input class="submit" type="submit" ng-click="add(assignment)" value="Save"/>
+                </form>
+                <div id="wrapper" class="col-md-offset-5">
+                    <h3>Assignments</h3>
+                    <ul>
+                        <li ng-repeat="assignment in assignments">{{ assignment.name }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
